@@ -33,12 +33,30 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Bulma CSS
+gem 'bulma-rails', '~> 0.6.2'
+
+# Simple Form
+gem 'simple_form', '~> 3.5', '>= 3.5.1'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'capybara', '~> 2.18'
+  gem 'selenium-webdriver', '~> 3.11'
+  gem 'rspec-core', '~> 3.7', '>= 3.7.1'
 end
 
 group :development do
+  # Make errors better looking
+  gem 'better_errors', '~> 2.4'
+  gem 'binding_of_caller', '~> 0.8.0'
+  # Guard is a command line tool to easily handle events on file system modifications.
+  gem 'guard', '~> 2.14', '>= 2.14.2'
+  # Guard::LiveReload automatically reloads your browser when 'view' files are modified.
+  gem 'guard-livereload', '~> 2.5', '>= 2.5.2', require: false
+  # Guard::RSpec automatically run your specs (much like autotest).
+  gem 'guard-rspec', '~> 4.7', '>= 4.7.3'
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
