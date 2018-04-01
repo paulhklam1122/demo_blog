@@ -39,6 +39,9 @@ gem 'bulma-rails', '~> 0.6.2'
 # Simple Form
 gem 'simple_form', '~> 3.5', '>= 3.5.1'
 
+# Friendly ID for prettier URLs
+gem 'friendly_id', '~> 5.2', '>= 5.2.3'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
