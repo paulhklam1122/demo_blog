@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :find_post, only: [:show, :edit, :update, :destroy]
   def index
     @posts = Post.all.order('created_at DESC')
   end
@@ -18,16 +19,12 @@ class PostsController < ApplicationController
   end
 
   def show
-    find_post
   end
 
   def edit
-    find_post
   end
 
   def update
-    find_post
-
     if @post.update post_params
       redirect_to @post
     else
@@ -36,7 +33,6 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    find_post
     @post.destroy
 
     redirect_to posts_path

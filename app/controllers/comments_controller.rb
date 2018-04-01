@@ -1,13 +1,12 @@
 class CommentsController < ApplicationController
+  before_action :find_post, only: [:create, :destroy]
   def create
-    find_post
     @comment = @post.comments.create(params[:comment].permit(:author, :body))
 
     redirect_to post_path(@post)
   end
 
   def destroy
-    find_post
     @comment = @post.comments.find params[:id]
     @comment.destroy
 
@@ -17,6 +16,6 @@ class CommentsController < ApplicationController
   private
 
   def find_post
-    @post = Post.find params[:post_id]
+    @post = Post.friendly.find params[:post_id]
   end
 end
